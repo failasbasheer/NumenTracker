@@ -23,11 +23,12 @@ app.use(express.json());
 
 // CORS setup
 const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? ['numen-tracker-frontend.vercel.app'] // replace with your live frontend URL
+  ? ['https://numen-tracker-frontend.vercel.app'] // full URL with https
   : ['http://localhost:3000'];
 
 app.use(cors({
   origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
 }));
 
